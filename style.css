@@ -1,0 +1,229 @@
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Arial','コーポレート・ロゴ', sans-serif;
+      background-color: #FFF7EA;
+      color: #333;
+      line-height: 1.6;
+      text-align: center;
+    }
+    
+    /* ハンバーガーメニュー */
+    nav {
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+    }
+    ul.header-menu {
+        /*最初はナビゲーションボタンは非表示*/
+        display: none;
+        list-style:none;
+        background-color: white;
+    }
+    li a {
+        padding: 8px;
+        font-size: 16px;
+        color: #464646;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+    }
+    /* ハンバーガーメニューアイコン */
+    .hamburger {
+        position: fixed;
+        top: 32px;
+        right:40px;
+        cursor: pointer;
+        width: 32px;
+        height: 24px;
+        z-index: 10;
+    }
+    .hamburger span {
+        /*3本の線を作る*/
+        transition: all .3s;
+        position: absolute;
+        right: 0;
+        height: 2px;
+        background-color: #333;
+        width:100%;
+        z-index: 10;
+    }
+    .hamburger span:nth-of-type(1) {
+        /*上の線の位置*/
+        top: 4px;
+    }
+    .hamburger span:nth-of-type(2) {
+        /*真ん中の線の位置*/
+        top: 12px;
+    }
+    .hamburger span:nth-of-type(3) {
+        /*下の線の位置*/
+        top: 20px;
+    }
+    .hamburger.open span:nth-of-type(1) {
+        /*openのとき、上の線を右斜めにする*/
+        top: 10px;
+        transform: translateY(6px) rotate(-33deg);
+    }
+    .hamburger.open span:nth-of-type(2) {
+        /*真ん中の線を消す*/
+        opacity: 0;
+    }
+    .hamburger.open span:nth-of-type(3) {
+        /*下の線を左斜めにする*/
+        top: 22px;
+        transform: translateY(-6px) rotate(33deg);
+    }
+
+    /* メインコンテンツ */
+    .container {
+        max-width: 1100px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    .container p {
+      max-width: 600px;       /* 好みで調整可能 */
+        margin: 0 auto;         /* 中央に配置 */
+        text-align: left;       /* テキストは左寄せ */
+        line-height: 1.8;
+        font-size: 16px;
+    }
+
+    .top-image {
+      width: 100%;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: #2771da;
+      text-align: left;
+      margin: 0 0 30px 30px;
+    }
+
+    .section-title span {
+      color: #555;
+      font-size: 1rem;
+      margin-left: 10px;
+    }
+
+        
+    .work-section {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 60px;
+      padding: 30px;
+      flex-wrap: wrap;
+      background-color: #fff;
+    }
+
+    .work-section.reverse {
+      flex-direction: row-reverse;
+    }
+    
+
+    .work-image {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .work-text {
+      max-width: 450px;       /* 好みで調整可能 */
+      margin: 0 auto;         /* 中央に配置 */
+      text-align: left;       /* テキストは左寄せ */
+      line-height: 1.8;
+    }
+
+    .work-text h3 {
+      font-size: 1.6rem;
+      color: #222;
+      margin-bottom: 15px;
+    }
+
+    .work-text p {
+      font-size: 0.95rem;
+    }
+
+    .thumbnail-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2列 */
+      gap: 20px; /* 画像の間隔 */
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .thumbnail-grid img {
+      width: 25vw;
+      height: auto;
+    }
+
+    /* 上部へ戻るボタン */
+    .btn__blue {
+      display: block;
+      text-align: center;
+      /* vertical-align: middle; */
+      text-decoration: none;
+      max-width: 100%;
+        width: fit-content;
+      margin: 30px auto;
+      padding: 0.5rem 3.5rem;
+      font-weight: bold;
+      border: 2px solid #27acd9;
+        border-radius: 2rem;
+      color: #27acd9;
+      transition: 0.5s;
+    }
+
+    .btn__blue:hover {
+      color: #fff;
+      background: #27acd9;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .section-title {
+        margin: 0 0 30px;
+      }
+
+      .work-section {
+        justify-content: center; /* 横方向中央揃え */
+      }
+
+      .work-text h3 {
+        margin-top: 30px;
+      }
+
+      .thumbnail-grid {
+        grid-template-columns: 1fr; /* 1列 */
+      }
+
+      .thumbnail-grid img {
+        width: 80vw;
+        height: auto;
+    }
+    }
+
+    @media (max-width: 450px) {
+      .work-section {
+      display: block;
+      }
+
+      .thumbnail-grid {
+        grid-template-columns: 1fr; /* 1列表示に切り替え */
+      }
+
+      .thumbnail-grid img {
+      width: 100%;
+      height: auto;
+    }
+
+    }
